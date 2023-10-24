@@ -11,6 +11,7 @@
 *.fmt
 *.fot
 *.cb
+*.ist
 *.cb2
 .*.lb
 
