@@ -11,6 +11,23 @@ Em seguida após a aprovação do orientador, será encaminhado o trabalho
 para a banca examinadora, semelhante a finalizar a autenticação.
 O foco deste trabalho se correlaciona à \acrshort{api} que fornece o
 fluxo de autenticação, conforme~\ref{fig:fluxoapi}.
+
+No desenvolvimento será aplicado as principais técnicas de
+programação, para trazer melhor legibilidade e também desempenho
+para a implementação da \acrshort{api}.
+Já as tecnologias envolvidas neste trabalho, foram utilizados o \acrfull{os}
+Windows, também como principal linguagem o \acrfull{kotlin} na
+versão 1.9.0, utilizando o ecossistema do \textit{framework} Spring
+atualmente na versão 3.2.x, tais como, Spring Web, Spring Data,
+Spring Security, entre outros.
+Também foi utilizado a plataforma \textit{cloud} Google Cloud, para
+gerenciar toda a infraestrutura de \textit{deploy} da \acrshort{api},
+assim como o banco de dados relacional utilizado, o PostgreSQL,
+atualmente na versão 16.0.
+Para complementar e auxiliar a autenticação dos arquivos PDF, o
+Governo Federal do Brasil disponibiliza uma \acrshort{api} de
+autenticação de documentos, \citetitle{decreto112020}
+
 \begin{figure}[h!]
     \centering
     \begin{sequencediagram}
@@ -32,13 +49,3 @@ fluxo de autenticação, conforme~\ref{fig:fluxoapi}.
         da \acrshort{api}}}
     \label{fig:fluxoapi}
 \end{figure}
-No desenvolvimento será aplicado as principais técnicas de programa
-ção orientada a objetos e programação funcional, para trazer
-melhor legibilidade e também desempenho para a implementação da \acrshort{api}.
-Para o desenvolvimento da \acrshort{api}, será utilizado a \acrfull{ide} Intellij Idea.
-A versão do \acrshort{kotlin} será 1.9.0, versão mais atual do
-mesmo no presente momento.
-De forma a validar a legalidade da autenticação dos \acrlong{tcc},
-será utilizado a \acrshort{api} fornecida pelo governo para
-autenticação de documentos, seguindo as diretrizes do decreto
-nº 10.543 de 13 de novembro de 2020~\cite{decreto112020}
