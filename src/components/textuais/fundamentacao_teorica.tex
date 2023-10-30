@@ -1,65 +1,130 @@
 \chapter{Fundamentação Teórica}\label{ch:fundamentacao-teorica}
 
+Neste capítulo, estão apresentados as relações de base téoricas que
+enviesam este trabalho e contribuem com o entedimento do tema.
+De forma geral, foi abordado assuntos relacionados à assinatura
+digital, \acrfull{api}, autenticação de arquivos, tipos de
+autenticação e normas para autenticação.
+\section{\acrlong{api}}\label{sec:api}
 
-\section{Autenticação}\label{sec:autenticacao}
+Segundo~\textcite{borgogno2019} as~\acrfullpl{api},
+são coleções de protocolos que especificam os meios de comunicação
+entre diferentes componentes de software.
+De acordo com~\textcite{biehl2015}, generalizando, as~\acrshortpl{api} não
+têm uma interface, não são graficamente aparentes, ou seja, não possuem uma
+interface gráfica, e não são usadas diretamente pelos usuários finais.
+Em vez disso, as~\acrshortpl{api} funcionam em segundo plano e só são chamadas
+diretamente por outros programas.
+As~\acrshortpl{api} são utilizadas na integração de dois ou mais sistemas de
+software e na comunicação máquina a máquina.
+Os desenvolvedores que usam~\acrshortpl{api} para criar aplicativos ou
+soluções são os únicos que lidam diretamente com elas.
+De acordo com~\textcite{russel2019} pode haver funções ou recursos que um
+site queira compartilhar com outros sites ou aplicativos, assim podendo
+utilizar esses protocolos, para poderem utilizar os serviços fornecidos.
+A Figura~\ref{fig:diagrama-fluxo-api} exemplifica as relações e
+comunicações entre diversos sistemas e outras~\acrshortpl{api}.
 
-\subsection{Tipos de Autenticação}\label{subsec:tipos-de-autenticacao}
+Para~\textcite{borgogno2019} as~\acrshortpl{api} melhoram a
+interoperabilidade entre várias camadas e facilitam o compartilhamento de
+fluxos ou conjuntos de dados entre os detentores de dados, simplificando o
+acesso de uma organização aos dados coletados por outra.
 
-\subsubsection{Autenticação de dois fatores}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[
+        ext/.style={circle,
+        draw,
+        fill=blue!5,
+        thin,
+        inner sep=0pt,
+        align=center,
+        text width=1.8cm,
+        },
+        api/.style={circle,
+        draw,
+        fill=green!5,
+        thin,
+        inner sep=0pt,
+        align=center,
+        text width=2cm,
+        },
+        db/.style={cylinder,
+        draw,
+        cylinder uses custom fill,
+        cylinder body fill=yellow!20,
+        cylinder end fill=yellow!40,
+        aspect=0.25,
+        shape border rotate=90,
+        height=3cm,
+        minimum height=1.5cm,
+        minimum width=1.5cm
+        }]
+        \node[ext](web){Web Applications};
+        \node[ext](mobile)[right=0.2cm of web]{Mobile Applications};
+        \node[ext](desktop)[right=0.2cm of mobile]{Desktop Applications};
+        \node[ext](backend)[right=0.2cm of desktop]{Backend Servers};
+        \node[ext](other)[right=0.2cm of backend]{Other \acrshortpl{api}};
+        \node[api](api)[below=of desktop]{\acrshort{api}}
+        \node[db](db)[below=of api]{Database}
+        
+        % requests
+        \draw[thick, ->]
+        (web) edge [bend left=-45] (api)
+        (mobile) edge [bend left=-45] (api)
+        (desktop) edge[bend left=-10] (api)
+        (backend) edge [bend right=-45] (api)
+        (other) edge [bend right=-45] (api);
+        %responses
+        \draw[dashed, ->]
+        (api) edge [bend right=-55] (web)
+        (api) edge [bend right=-55] (mobile)
+        (api) edge[bend right=10] (desktop)
+        (api) edge[bend left=-55] (backend)
+        (api) edge[bend left=-55] (other);
+        
+        \draw[thick, ->]
+        (api) edge[bend left=-10] (db);
+        \draw[dashed, ->]
+        (db) edge[bend right=10] (api);
+    \end{tikzpicture}
+    \caption[Fluxo de uma \acrshort{api}]{
+        Diagrama mostrando o fluxo de uma \acrshort{api} com diversos clientes}
+    \label{fig:diagrama-fluxo-api}
+\end{figure}
 
-\subsubsection{Multifator}
+\newpage
 
-\subsection{Assinatura Digital}\label{subsec:assinatura-digital}
+Do ponto de vista tecnológico, segundo~\textcite{russel2019} os serviços
+on-line não podem ser combinados ou integrados sem~\acrshortpl{api}.
+Os sites e aplicativos móveis modernos e interativos são possíveis graças às
+~\acrshortpl{api}.
+Entretanto, quando é acessado sites e aplicativos conhecidos, as
+~\acrshortpl{api} podem ser exploradas por desenvolvedores e anunciantes para
+coletar uma massa de dados pessoais, o que pode comprometer a privacidade dos
+dados dos usuários.
 
-\subsection{Normas para autenticação}
-\label{subsec:normas-para-autenticacao}
+De acordo com~\textcite{russel2019}, existem diferentes categorias de
+\acrshortpl{api} que os serviços podem fornecer aos desenvolvedores, como:
 
-%\section{\acrlong{kotlin}}
-%\acrshort{kotlin} é uma linguagem de programação tipada
-%estaticamente que, em comparação com \acrfull{java}, diminui a
-%verbosidade da linguagem (por exemplo, os ponto e vírgula são
-%opcionais como terminadores de declaração ';')
-%\cite{goismateus2019}.
-%
-%As aplicações escritas em Kotlin utilizam também a \acrfull{jvm}
-%como base.  O código escrito em Kotlin é traduzido em código
-%binário Java pelo \acrfull{kotlinc} e depois executado pela
-%\acrshort{jvm}. \acrshort{kotlin} é compatível com \acrshort{java}
-%e outras linguagens \acrshort{jvm} devido a isto (por exemplo,
-%\acrshort{scala} ou \acrshort{groovy}).
-%
-%Duas perspectivas sobre esta interoperabilidade são possíveis;
-%primeiro, os criadores do \acrshort{kotlin} podem utilizar
-%bibliotecas (tais como \acrfull{jar}) criadas em outras linguagens
-%que executam em cima da \acrshort{jvm}, tais como \acrshort{java};
-%Em segundo lugar, os programadores podem combinar o
-%\acrshort{kotlin} com outras linguagens \acrshort{jvm} para
-%construir aplicações.
-%
-%\subsection{Funcionalidades do \acrshort{kotlin}}
-%Linguagens modernas de programação como \acrshort{java} e
-%\acrshort{kotlin} rodam em cima da \acrshort{jvm}.
-%
-%Entretanto, o \acrshort{kotlin} difere do \acrshort{java} de
-%algumas formas fundamentais. Uma das diferenças mais
-%significativas é que, além do paradigma orientado ao objeto,
-%\acrshort{kotlin} introduz a programação funcional, que permite o
-%uso de funções de alta ordem, por exemplo.
-%Segundo a documentação oficial, a seguinte lista apresenta algumas
-%características de Kotlin não presentes em Java:
-%\begin{itemize}
-%    \item A combinação de Expressões \textit{Lambda} e funções
-%\textbf{Inline};
-%    \item funções de extensão
-%    \item \textit{Null-safety}
-%    \item \textit{Smart casts}
-%    \item \textit{First-class delegation}
-%    \item Inferência de tipo para tipos de variáveis e propriedades
-%    \item \textit{Range operator}
-%    \item \textit{Data class}
-%    \item \textit{Interfaces separadas para coleções somente
-%leitura e mutáveis}
-%    \item Co-rotinas
-%\end{itemize}
+\begin{itemize}
+    \item As~\acrshortpl{api} voltadas para o conteúdo fornecem acesso a
+    dados publicados pelo serviço original.
+    \item As~\acrshortpl{api} de recursos permitem que outros sites ou
+    aplicativos móveis integrem o recurso existente de outro serviço em sua
+    oferta.
+    \item As~\acrshortpl{api} não oficiais destinam-se ao uso interno do
+    serviço, mas também podem ser usadas por terceiros.
+    \item As~\acrshortpl{api} de análise permitem que os desenvolvedores
+    obtenham informações sobre os visitantes de seus sites
+\end{itemize}
 
-
+%\section{Autenticação} \label{sec:autenticacao}
+%\subsection{Tipos de Autenticação}
+%\label{subsec:tipos-de-autenticacao}
+%\subsubsection{Autenticação de dois fatores}
+%\subsubsection{Multifator}
+%\subsection{Assinatura Digital}
+%\label{subsec:assinatura-digital}
+%\subsection{Normas para autenticação}
+%\label{subsec:normas-para-autenticacao}

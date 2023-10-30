@@ -1,36 +1,39 @@
 \chapter{Trabalhos correlatos}\label{ch:trabalhos-correlatos}
-%Neste capitulo serão apresentados trabalhos que correlacionam o
-%uso de \acrshort{knn}, em implementações em Kotlin e/ou em outras
-%linguagens.
-As fontes serão apresentadas na Tabela \ref{tab:fontes-pesquisa}
+
+Neste capítulo serão apresentados trabalhos que fazem parte da
+estruturação da pesquisa, no qual foi de grande importancia para
+obter informações para melhorar, resolver relacionados à mesma, e
+para melhor entedimento da pesquisa pelo autor.
+A tabela \ref{tab:fontes-pesquisa} a seguir consta as fontes para a
+busca dos trabalhos:
+
 \begin{table}[h!]
     \centering
-    \begin{tabular}{|m{4cm}|m{4cm}|}
+    \begin{tabular}{|m{4cm}|m{4.5cm}|}
         \hline
-        Nome da Fonte       & Link de Acesso               \\ \hline
-
-        IEEExplore          & https://ieeexplore.ieee.org/ \\ \hline
-        ACM Digital Library & https://dl.acm.org/          \\ \hline
-        Springer            & https://link.springer.com/   \\ \hline
+        Nome da Fonte       & Link de Acesso                \\ \hline
+        IEEExplore          & https://ieeexplore.ieee.org   \\ \hline
+        ACM Digital Library & https://dl.acm.org/           \\ \hline
+        Science Direct      & https://www.sciencedirect.com \\ \hline
     \end{tabular}
     \caption[Fontes de pesquisa]{\textit{Fontes para pesquisa dos
-    conteúdos academicos}}
+    conteúdos acadêmicos}}
     \label{tab:fontes-pesquisa}
 \end{table}
+
 Na busca dos artigos, foi realizado filtragem seguindo alguns
-critérios de inclusão e exclusão, como, por exemplo, por meio do
-ano de publicação, mantendo os mesmos entre 2017 à 2022, para que o
-trabalho consista de materiais atualizados.
-Os critérios de inclusão e exclusão são descritos sistematicamente
-na tabela \ref{tab:criterios-exclusao}.
-\newpage
+critérios de inclusão e exclusão, no qual garantem que o trabalho
+esteja atualizado, tenha consistência e garanta o embasamento
+correto das informações aqui conferidas.
+
 \begin{table}[h!]
     \centering
     \begin{tabular}{|m{4cm}|m{4cm}|}
         \hline
-        Critérios de inclusão & Critérios de Exclusão \\ \hline
+        \multicolumn{1}{|c|}{Critérios de inclusão} & \multicolumn{1}{c|}{
+            Critérios de Exclusão} \\ \hline
         \begin{itemize}[leftmargin=10px]
-            \item Artigos que estejam entre os anos de 2017 a 2023
+            \item Artigos que estejam entre os anos de 2015 a 2023
             \item Artigos que contenham relações com documentos
             impressos
             \item Artigos que contenham relações com autenticação
@@ -40,6 +43,7 @@ na tabela \ref{tab:criterios-exclusao}.
         \end{itemize} &
         \begin{itemize}[leftmargin=10px]
             \item Artigos anteriores à 2015.
+            \item Artigos que não contenham relações com \acrshortpl{api}
         \end{itemize} \\ \hline
     \end{tabular}
     \caption[Critérios de inclusão e exclusão]{\textit{Critérios de
@@ -47,44 +51,55 @@ na tabela \ref{tab:criterios-exclusao}.
     \label{tab:criterios-exclusao}
 \end{table}
 
-Conforme os dados apresentados na tabela \ref{tab:resultado-pesquisa},
-na pesquisa através do site IEEE Xplore, foram encontrados 3 (três)
-artigos com relevância para este trabalho dentre os 32 (trinta e
-dois).
+Já a relação entre os dados obtidos de cada pesquisa, com suas
+respectivas strings de busca, e os trabalhos utilizados, constam na
+tabela~\ref{tab:resultado-pesquisa}, a seguir:
 
 \begin{table}[h!]
     \centering
-    \begin{tabular}{| m{3cm} | m{3cm} | m{3cm} |}
-        \hline
-        Local de Busca      & Resultado & Utilizados \\ \hline
-
-        IEEExplore          & 32        & 3          \\ \hline
-        ACM Digital Library & x2        & y2         \\ \hline
-        Springer            & x3        & y3         \\ \hline
+    \begin{tabular}{|m{2.5cm}|m{2.5cm}|m{3cm}|m{2cm}|}
+        \cline{2-4}
+        \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{IEExplore} & \multicolumn{1}{c|}{ACM Digital Library} &
+        \multicolumn{1}{c|}{ScienceDirect} \\ \hline
+        \multicolumn{1}{|c|}{Strings de Busca} & ("All Metadata":digital
+        documents) AND
+        ("All Metadata":signature) AND (("All Metadata":system) OR
+        ("All Metadata":API)) & [All: "digital documents"]
+        AND [All: "signature"] AND [[All: "system"] OR [All: "API"]]
+        & ("digital documents" AND "authentication"
+        AND ("system" OR "API"))
+        \\ \hline
+        \multicolumn{1}{|c|}{Resultado} & \multicolumn{1}{c|}{110} &
+        \multicolumn{1}{c|}{51} &
+        \multicolumn{1}{c|}{65} \\ \hline
+        \multicolumn{1}{|c|}{Utilizados} & \multicolumn{1}{c|}{1} &
+        \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{2} \\ \hline
     \end{tabular}
-    \caption[Resultado das pesquisas]{\textit{Resultado das
-    pesquisas para utilização nos Trabalhos Correlatos.}}
+    \caption[Resultado das pesquisas]{Resultado das
+    pesquisas para utilização nos Trabalhos Correlatos.}
     \label{tab:resultado-pesquisa}
 \end{table}
 
-\newpage
-As \textit{strings} de busca utilizadas para pesquisa, estão
-apresentadas na tabela \ref{tab:strings-busca}.
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|m{6cm}|l|l|}
-        \hline
-        Bibliotecas de pesquisa & \textit{Strings} de Pesquisa \\ \hline
+Já na tabela~\ref{tab:trabalhos-correlatos}, segue com algums dados sobre os
+trabalhos correlatos, como titulo, os escritores e o ano de publicação do mesmo.
 
-        IEEE Xplore & ("All Metadata":authentication) AND ("All
-        Metadata":printed document)
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{1\textwidth}{
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X|
+    }
+        \hline
+        \multicolumn{1}{|c|}{Título} & Autores & Data de Publicação
         \\ \hline
-        ACM Digital Library &
-        \\ \hline
-        Springer &
-        \\ \hline
-    \end{tabular}
-    \caption[Strings de busca]{\textit{Strings de busca utilizadas
-    para adquirir os conteúdos}}
-    \label{tab:strings-busca}
+        \citerow{arief2019} \\ \hline
+        \citerow{borgogno2019} \\ \hline
+        \citerow{tsai2019} \\ \hline
+        \citerow{zhang2019} \\ \hline
+    
+    \end{tabularx}
+    \caption[Informações dos Trabalhos Correlatos]{Informações referentes aos
+    trabalhos selecionados}
+    \label{tab:trabalhos-correlatos}
 \end{table}
