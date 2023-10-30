@@ -30,22 +30,32 @@ autenticação de documentos, \citetitle{decreto112020}
 
 \begin{figure}[h!]
     \centering
-    \begin{sequencediagram}
-        \newthread{AU}{Autenticador}{}
-        \newthread{A}{Aluno}{}
-        \newinst{O}{Orientador}{}
-        \newinst{B}{Banca examinadora}{}
-        \begin{call}{A}{Solicitação}{AU}{Arquivo completo}
-            \begin{call}{AU}{Notifica}{O}{Autenticado}
-                \postlevel
-            \end{call}
-            \begin{call}{AU}{Notifica}{B}{Autenticado}
-                \postlevel
-            \end{call}
-        \end{call}
-    \end{sequencediagram}
+    \begin{tikzpicture}
+        \begin{umlseqdiag}
+            \umlobject[x=2, y=1, no ddots]{Autenticador}
+            \umlactor[x=0, no ddots]{Aluno}
+            \umlactor[x=4, no ddots]{Orientador}
+            \umlactor[x=6, no ddots]{Banca}
+            \begin{umlcall}[op=Envia Arquivo, return=Arquivo Final]
+            {Aluno}{Autenticador}
+                \begin{umlcall}[op=Notifica, return=Arquivo]
+                {Autenticador}{ Orientador}
+                    \begin{umlcall}[op=Notifica]
+                    {Autenticador}{Aluno}
+                    \end{umlcall}
+                \end{umlcall}
+                \begin{umlcall}[op=Notifica, return=Arquivo]
+                {Autenticador}{Banca}
+                    \begin{umlcall}[op=Notifica]
+                    {Autenticador}{Aluno}
+                    \end{umlcall}
+                \end{umlcall}
+            
+            \end{umlcall}
+        \end{umlseqdiag}
+    \end{tikzpicture}
     \caption[Diagrama de sequência Autenticação \acrshort{api}]{
-        \textit{Diagrama de sequência com o fluxo de autenticação
-        da \acrshort{api}}}
-    \label{fig:fluxoapi}
+        Diagrama de sequência com o fluxo de autenticação
+        da \acrshort{api}}
+    \label{fig:diagrama-sequencia-api}
 \end{figure}
