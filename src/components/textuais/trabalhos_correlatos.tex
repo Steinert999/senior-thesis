@@ -1,10 +1,21 @@
+\newcommand{\hashfootnote}{
+    \footnote{
+        O algoritmo \textit{hash} é conhecido como uma função matemática
+        criptográfica, na qual você possui dados de entrada e, após passar
+        pela criptografia, eles apresentam valores de saída "padronizados", ou
+        seja, as saídas devem possuir o mesmo tamanho (geralmente entre 128 e
+        512 bits) e o mesmo número de caracteres alfanuméricos.
+        Disponivel em :
+        \url{https://www.voitto.com.br/blog/artigo/o-que-e-hash-e-como-funciona}
+    }
+}
 \chapter{Trabalhos correlatos}\label{ch:trabalhos-correlatos}
 
 Neste capítulo serão apresentados trabalhos que fazem parte da
 estruturação da pesquisa, no qual foi de grande importancia para
 obter informações para melhorar, resolver relacionados à mesma, e
-para melhor entedimento da pesquisa pelo autor.
-A tabela \ref{tab:fontes-pesquisa} a seguir consta as fontes para a
+para melhor entendimento da pesquisa pelo autor.
+A tabela~\ref{tab:fontes-pesquisa} a seguir consta as fontes para a
 busca dos trabalhos:
 
 \begin{table}[h!]
@@ -28,24 +39,26 @@ correto das informações aqui conferidas.
 
 \begin{table}[h!]
     \centering
-    \begin{tabular}{|m{4cm}|m{4cm}|}
+    \begin{tabularx}{\textwidth}{
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |}
         \hline
         \multicolumn{1}{|c|}{Critérios de inclusão} & \multicolumn{1}{c|}{
             Critérios de Exclusão} \\ \hline
         \begin{itemize}[leftmargin=10px]
             \item Artigos que estejam entre os anos de 2015 a 2023
-            \item Artigos que contenham relações com documentos
-            impressos
-            \item Artigos que contenham relações com autenticação
-            digital
-            \item Artigos que disponham identificação de informa
-            ções fraudulentas de documentos impressos
+            \item Artigos que contenham autenticação de documentos digitais,
+            especificamente no formato \acrshort{pdf}
+            \item Artigos que contenham relações com autenticação digital
         \end{itemize} &
         \begin{itemize}[leftmargin=10px]
             \item Artigos anteriores à 2015.
-            \item Artigos que não contenham relações com \acrshortpl{api}
+            \item Artigos que não possuam relação à autenticação de
+            documentos digitais
+            \item Artigos que tenham relação ao formato \acrshort{pdf}
         \end{itemize} \\ \hline
-    \end{tabular}
+    \end{tabularx}
     \caption[Critérios de inclusão e exclusão]{\textit{Critérios de
     inclusão e exclusão}}
     \label{tab:criterios-exclusao}
@@ -56,25 +69,34 @@ respectivas strings de busca, e os trabalhos utilizados, constam na
 tabela~\ref{tab:resultado-pesquisa}, a seguir:
 
 \begin{table}[h!]
+    \newcommand{\ieeexplorer}{
+        ("All Metadata": digital documents) AND ("All Metadata": authentication)
+        AND (("All Metadata": system) OR ("All Metadata": API))
+    }
+    \newcommand{\acmdigital}{
+        [All: "digital documents"] AND [All: "authentication"] AND [[All: "
+        system"] OR [All: "API"]]
+    }
+    \newcommand{\sciencedirect}{
+        ("digital documents" AND "authentication" AND ("system" OR "API"))
+    }
     \centering
-    \begin{tabular}{|m{2.5cm}|m{2.5cm}|m{3cm}|m{2cm}|}
+    \begin{tabularx}{\textwidth}{
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |}
         \cline{2-4}
-        \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{IEExplore} & \multicolumn{1}{c|}{ACM Digital Library} &
-        \multicolumn{1}{c|}{ScienceDirect} \\ \hline
-        \multicolumn{1}{|c|}{Strings de Busca} & ("All Metadata":digital
-        documents) AND
-        ("All Metadata":signature) AND (("All Metadata":system) OR
-        ("All Metadata":API)) & [All: "digital documents"]
-        AND [All: "signature"] AND [[All: "system"] OR [All: "API"]]
-        & ("digital documents" AND "authentication"
-        AND ("system" OR "API"))
+        \multicolumn{1}{c|}{} & IEExplore & ACM Digital Library & ScienceDirect
         \\ \hline
-        \multicolumn{1}{|c|}{Resultado} & \multicolumn{1}{c|}{110} &
-        \multicolumn{1}{c|}{51} &
-        \multicolumn{1}{c|}{65} \\ \hline
-        \multicolumn{1}{|c|}{Utilizados} & \multicolumn{1}{c|}{1} &
-        \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{2} \\ \hline
-    \end{tabular}
+        Strings de Busca & \ieeexplorer & \sciencedirect & \acmdigital
+        \\ \hline
+        Resultado & 110 & 51 & 65
+        \\ \hline
+        Utilizados & 2 & - & -
+        \\ \hline
+    \end{tabularx}
     \caption[Resultado das pesquisas]{Resultado das
     pesquisas para utilização nos Trabalhos Correlatos.}
     \label{tab:resultado-pesquisa}
@@ -93,13 +115,68 @@ trabalhos correlatos, como titulo, os escritores e o ano de publicação do mesm
         \hline
         \multicolumn{1}{|c|}{Título} & Autores & Data de Publicação
         \\ \hline
-        \citerow{arief2019} \\ \hline
-        \citerow{borgogno2019} \\ \hline
-        \citerow{tsai2019} \\ \hline
-        \citerow{zhang2019} \\ \hline
-    
+        \multicolumn{3}{|c|}{IEEExplore} \\ \hline
+        \citerow{ramadhan2023} \\ \hline
+        \citerow{iman2021} \\ \hline
+        \citerow{shree2022} \\ \hline
+        \multicolumn{3}{|c|}{ACM Digital Library} \\ \hline
+        \multicolumn{3}{|c|}{Science Direct} \\ \hline
     \end{tabularx}
     \caption[Informações dos Trabalhos Correlatos]{Informações referentes aos
     trabalhos selecionados}
     \label{tab:trabalhos-correlatos}
 \end{table}
+
+Sobre o trabalho de \textcite{ramadhan2023}, é falado a respeito de como a
+pandemia de COVID-19 levou a um aumento significativo no uso de assinaturas
+digitais em sistemas comerciais, especialmente na transferência de documentos
+entre indivíduos por meios digitais.
+Vários algoritmos para assinaturas digitais foram apresentados anteriormente;
+no entanto, não se sabe qual algoritmo é mais adequado para documentos no
+formato~\acrfull{pdf} em termos de segurança e velocidade de processamento.
+Além disso, as soluções para serviços de assinatura digital atualmente
+disponíveis são bastante caras.
+
+Diante deste cenário,~\textcite{ramadhan2023} propõem uma análise de segurança,
+consumo de memória e tempo de processamento de métodos de assinatura
+digital em documentos~\acrshort{pdf}.
+Além disso, os mesmos realizam o desenvolvimento de um protótipo de
+assinatura digital para serviços~\textit{Web} que usa os melhores
+algoritmos de assinatura digital analisados como resultado da análise.
+
+Em relação ao trabalho de~\textcite{iman2021}, os mesmos falam em relação de
+como atualmente, pelo crescimento exarcebado do setor de tecnologia da
+informação, e o fácil acesso do mercado a ferramentas modernas para o
+escritório, há uma demanda crescente por procedimentos de verificação e
+autenticação de uma variedade de documentos cruciais, como documentos de
+transações, bancários e oficiais, bem como certificações de instituições
+educacionais.
+Devido a isto, vários procedimentos difíceis e demorados tornaram a verificação
+de documentos extremamente difícil e demorada.
+
+Para resolver este problema,~\textcite{iman2021} proporam um aplicativo \textcite{Web}
+descentralizado para verificação de documentos digitais no armazenamento em
+nuvem~\acrshort{p2p} que aproveita a tecnologia \textit{blockchain} da
+Ethereum para aprimorar o processo de verificação por meio de maior
+transparência, abertura e auditabilidade.
+
+O artigo, escrito por~\textcite{shree2022} fala que Tudo em nossa vida tem se
+tornado digital.
+Muitas de nossas tarefas manuais foram automatizadas, graças ao rápido avanço
+da tecnologia.
+Com isso também houve avanço no uso em documentações, levando as pessoas a
+utilizarem documentos digitais.
+Em contrapartida, o aumento de documentos falsos digitais ficaram mais
+comuns; documentos importantes, como certificados educacionais e extratos
+bancários, precisam ser verificados e autenticados.
+Porém o processamento, verificação e autenticação desses documentos é complexo e
+demorado.
+
+
+Para isto,~\textcite{shree2022} trazem consigo um sistema \textit{Web}, que,
+segundo os mesmos, passa em todos os critérios mencionados acima.
+O sistema em si, armazena os documentos em nuvem, fazendo com que cada
+arquivo possua um \textit{hash}\hashfootnote, assim fazendo com que a
+verificação dos
+documentos seja mais rapida e mais conveniente que o modelo tradicional.
+

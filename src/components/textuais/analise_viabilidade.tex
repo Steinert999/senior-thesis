@@ -1,37 +1,90 @@
+\newcommand{\footnotegantt}{
+    \footnote{O Gráfico de Gantt, também conhecido como Diagrama de Gantt,
+        é uma ferramenta visual para controlar o cronograma de um projeto ou
+        de uma programação de produção, ajudando a avaliar os prazos de
+        entrega e os recursos críticos.
+        Disponível em:
+        \url{https://www.nomus.com.br/blog-industrial/grafico-de-gantt/}
+    }
+}
 \chapter{Análise de Viabilidade da Pesquisa}
 \label{ch:analise-de-viabilidade-da-pesquisa}
 
+No quesito de viabilidade deste trabalho, o mesmo possui características que
+argumentam e garantem a viabilidade do mesmo.
+No âmbito de contribuição científica, o mesmo se atribui realizavel, visto que,
+busca auxiliar e contribuir na pesquisa de autenticação de arquivos digitais,
+especificamente para~\acrlong{tcc}.
 
-\section{Cronograma de desenvolvimento de pesquisa}
+Na autenticação de~\acrshortpl{pdf}, vimos que há uma lacuna muito grande,
+devido ao uso majoritário de documentos impressos.
+O uso de tal, auxilia na facilidade de criar documentos fraudulentos, algo que,
+há maior dificuldade em documentos digitais.
+
+Em questão de execução computacional, o trabalho se afirma possivel,
+tendo em vista a diversidade de tecnologias possiveis para criação de
+~\acrshortpl{api}.
+Para este trabalho, as tecnologias utilizadas são comumente utilizadas para
+desenvolvimento de~\acrshortpl{api}, no qual garantem facilidade, organização
+e desempenho para o mesmo.
+Também conforme dito em capítulos anteriores, a autenticidade dos documentos
+e legalidade dos mesmos, são garantidas, pelo ~\citeauthor*{decreto112020},
+visto que o mesmo proporciona leis, e inclusive uma~\acrshort{api} que
+autentica e faz o intermédio deste trabalho.
+
+Relacionando o projeto a custos do mesmo, esta pesquisa usa em sua totalidade
+projetos \textit{open-source}, e projetos que sejam gratuitos (inclusive o
+disposto pelo~\citeauthor*{decreto112020}), assim tornando-o mais adequado
+para sua continuidade sem custos.
+\newpage
+\section{Cronograma de atividades para desenvolvimento da pesquisa}
 \label{sec:cronograma-de-desenvolvimento-de-pesquisa}
 
-A tabela a seguir representa o cronograma do
-desenvolvimento desta pesquisa:
+A tabela a seguir, definida como um diagrama Gantt\footnotegantt, representa o
+cronograma do desenvolvimento desta pesquisa:
+
+
+\ganttset{
+    group/.append style={draw=black, fill=green!50, drop shadow },
+    milestone/.append style={draw=black, fill=red!50},
+    bar/.append style={fill=blue!20, draw=black, rounded corners=2mm,
+    drop shadow},
+    bar inline label node/.append style={left=1pt}
+}
 
 \begin{table}[h!]
-    \newcommand{\fillCell}{\cellcolor[HTML]{CBCEFB}}
-    \begin{tabular}{|p{2cm}|l|l|l|l|l|l|}
-        \hline
-        \rowcolor[HTML]{CBCEFB}
-        Especificação & Junho & Julho & Agosto & Setembro & Outubro
-        & Novembro
-        \\ \hline
-        & \fillCell & & & & &
-        \\ \hline
-        & & \fillCell & & & &
-        \\ \hline
-        & & & \fillCell & \fillCell &           & \\ \hline
-        & & & & & \fillCell &
-        \\ \hline
-        & & &           &           & \fillCell & \\ \hline
-        & & & & & & \fillCell
-        \\ \hline
-    \end{tabular}
-    \center Fonte: Elaborado pelo Autor (2022).
-    \label{table:cronograma-pesquisa}
+    \begin{ganttchart}
+    [
+        hgrid, vgrid,
+        x unit=1cm,
+        y unit chart=.5cm,
+        time slot format=isodate,
+        time slot unit=month
+    ]{2023-06-01}{2023-11-20}
+        \gantttitlecalendar{month=shortname}\\
+        
+        \ganttgroup{Desenv. do documento}{2023-06-01}{2023-11-20}\\
+        \ganttbar{Definição do tema}{2023-06-01}{2023-07-30}\\
+        \ganttlinkedbar{Procura de artigos}{2023-08-01}{2023-09-30}\\
+        \ganttbar{Escrita}{2023-06-01}{2023-11-20}\\
+        
+        \ganttlinkedmilestone{Finalização do documento}{2023-11-20}\\
+        
+        \ganttgroup{Desenvolvimento da
+        \acrshort{api}}{2023-07-01}{2023-11-20}\\
+        
+        
+        \ganttbar{Arquitetura da \acrshort{api}}
+        {2023-07-01}{2023-08-30} \\
+        \ganttlinkedbar{Regras de negócio}{2023-07-15}{2023-09-30} \\
+        \ganttlinkedbar{Escrita do código da \acrshort{api}}
+        {2023-09-30}{2023-10-30} \\
+        \ganttlinkedbar{Testes}{2023-10-30}{2023-11-20} \\
+        
+        \ganttlinkedmilestone{Finalização geral}{2023-11-20} \\
+    
+    \end{ganttchart}
+    \label{tab:cronograma-pesquisa}
     \caption[Cronograma de desenvolvimento]{Cronograma de
-    desenvolvimento}
+    atividades para o desenvolvimento da pesquisa}
 \end{table}
-
-Conforme a tabela \ref{table:cronograma-pesquisa} de cronograma
-segue um resumo breve de cada tópico presente na mesma:
