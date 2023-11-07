@@ -1,6 +1,37 @@
-\renewcommand{\ABNTEXchapterfontsize}{
-    \normalfont\fontsize{10.5pt}{10.5pt}\bfseries
-} % configura a fonte dos capítulos
+%fonte
+\renewcommand{\tocheadstart}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXchapterfontsize}{ \normalfont\fontsize{10.5pt}{10.5pt}\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\normalfont\fontsize{10.5pt}{10.5pt}}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalfont\fontsize{10.5pt}{10.5pt}}
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont\fontsize{10.5pt}{10.5pt}}
+\renewcommand{\footnotesize}{\normalfont\fontsize{8pt}{8pt}}
+\renewcommand{\ABNTEXfontereduzida}{\normalfont\fontsize{9.5pt}{9.5pt}}
+
+% margens
 \setlrmarginsandblock{2.5cm}{1.5cm}{*}
 \setulmarginsandblock{2cm}{1.5cm}{*}
 \checkandfixthelayout
+
+\setlength{\parindent}{1cm}
+
+
+% capa
+\renewcommand{\imprimircapa}{
+    \begin{capa}
+        \centering
+        \MakeUppercase\imprimirinstituicao
+        
+        \vspace*{2cm}
+        
+        \textbf{\imprimirautor}
+        
+        \vspace*{3.5cm}
+        
+        \MakeUppercase{\textbf{\imprimirtitulo}}
+        \vfill
+        
+        \LARGE{\textbf{\imprimirlocal}}
+        
+        \LARGE{\textbf{\imprimirdata}}
+    \end{capa}
+}
