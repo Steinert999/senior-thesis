@@ -1,32 +1,19 @@
 \section{Delimitação do tema}\label{sec:delimitacao-do-tema}
 
-Este projeto se dará durante o período de agosto de 2023 até agosto
-de 2024, procura criar uma implementação focada em autenticar um ou
-mais~\acrfull{tcc}~fornecidos ao sistema pelos alunos do~\acrfull{iesgf}.
-A autenticação consiste em passar por uma série de etapas,
-onde, após a inclusão do trabalho, ficará ao encargo do orientador
-responsável.
-Em seguida após a aprovação do orientador, será encaminhado o trabalho
-para a banca examinadora, semelhante a finalizar a autenticação.
-O foco deste trabalho se correlaciona à~\acrshort{api} que fornece o
-fluxo de autenticação, conforme Figura~\ref{fig:diagrama-sequencia-api}.
-
-No desenvolvimento será aplicado as principais técnicas de
-programação, para trazer melhor legibilidade e também desempenho
-para a implementação da~\acrshort{api}.
-Já as tecnologias envolvidas neste trabalho, foram utilizados o \acrfull{os}
-Windows, também como principal linguagem o~\acrfull{kotlin} na
-versão 1.9.0, utilizando o ecossistema do~\textit{framework} Spring
-atualmente na versão 3.2.x, tais como, Spring Web, Spring Data,
-Spring Security, entre outros.
-Também foi utilizado a plataforma~\textit{cloud} Google Cloud, para
-gerenciar toda a infraestrutura de~\textit{deploy} da~\acrshort{api},
-assim como o banco de dados relacional utilizado, o PostgreSQL,
-atualmente na versão 16.0.
-Para complementar e auxiliar a autenticação dos arquivos PDF, o
-~\citeauthor*{decreto112020} disponibiliza uma~\acrshort{api} de
-autenticação de documentos seguindo a legislação descrita no
-~\citetitle*{decreto112020}~\cite{decreto112020}.
+Este projeto será realizado no período de agosto de 2023 a agosto de 2024.
+Seu objetivo principal é desenvolver uma implementação voltada para a
+autenticação de \acrfullpl{tcc} fornecidos ao sistema pelos alunos do
+\acrfull{iesgf}.
+A autenticação é um procedimento constituído por múltiplas etapas.
+Primeiramente, o aluno realiza o envio do arquivo.
+Após o envio, o sistema emite uma notificação ao orientador, solicitando a
+validação e assinatura do documento.
+Essa ação confirma a necessidade de autenticação por parte do sistema.
+Posteriormente, ocorre o encaminhamento do trabalho à banca examinadora,
+seguindo um fluxo semelhante ao realizado pelo orientador, depois de obter
+aprovação deste último.
+A representação visual do procedimento do sistema encontra-se exemplificada
+na figura~\ref{fig:diagrama-sequencia-api}.
 
 \begin{figure}[h!]
     \centering
@@ -57,5 +44,22 @@ autenticação de documentos seguindo a legislação descrita no
     \caption[Diagrama de sequência Autenticação \acrshort{api}]{
         Diagrama de sequência com o fluxo de autenticação
         da \acrshort{api}}
+    \sourcesearchfootnote
     \label{fig:diagrama-sequencia-api}
 \end{figure}
+\newpage
+
+No desenvolvimento, serão aplicadas as principais técnicas de programação para
+trazer melhor legibilidade e também desempenho para a implementação da
+~\acrfull{api}.
+Quanto às tecnologias envolvidas neste trabalho, será utilizado o~\acrfull{os}
+Windows, bem como a linguagem principal~\acrfull{kotlin}, na versão 1.9.0,
+acompanhada pelo ecossistema do~\textit{framework} Spring, atualmente na versão
+3.2.x, tais como Spring Web, Spring Data, Spring Security, entre outros.
+Além disso, será utilizada a plataforma de nuvem Google Cloud para gerenciar
+toda a infraestrutura de~\textit{deployment} da~\acrshort{api}, assim como o
+banco de dados relacional PostgreSQL, atualmente na versão 16.0. De modo a
+complementar este trabalho, especificamente na autenticação dos arquivos,
+o~\citeauthor*{govbr2020} disponibiliza uma~\acrshort{api} para autenticação
+generalizada de documentos, conforme a legislação estabelecida no
+~\citetitle*{govbr2020}~\cite{govbr2020}.

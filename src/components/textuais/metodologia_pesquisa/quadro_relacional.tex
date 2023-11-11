@@ -1,35 +1,40 @@
+\newcommand{\footnoteendtoend}{
+    \footnote{
+        O teste \textit{end-to-end} é uma metodologia utilizada para testar se
+        o fluxo de um aplicativo está sendo executado conforme o projeto do
+        início ao fim.
+        Disponivel em: \url{https://www.cedrotech.com/blog/teste-end-to-end/}
+    }
+}
 \section{Procedimentos Metotodológicos}\label{sec:quadro-relacional}
 
 Neste capitulo descrevem-se as metodologias utilizadas em cada
 etapa dos objetivos propostos para este artigo, assim definido na
-tabela \ref{tab:aspectos-metodologicos}.
+tabela~\ref{tab:aspectos-metodologicos}.
 \newcommand{\definicaoTema}{
-    \item Analisado os temas propostos com o orientador, definindo
+    \item Análise do tema propostos com o orientador, definindo
     a utilidade e necessidade do mesmo.
 }
 \newcommand{\buscaArtigos}{
-    \item Após a delimitação do tema, foi iniciado buscas para
-    referencial bibliográfico, com conceitos como: Assinatura
-    digital, Autenticação de dois fatores, entre outros.
+    \item Busca de referencial bibliográfico, com conceitos como:
+    Assinatura digital, Autenticação de dois fatores, entre outros.
 }
 \newcommand{\filtragemArtigos}{
-    \item Posteriormente, foi realizado filtragem para manter
-    consistência nos artigos referenciais, de forma a não poluir o
-    trabalho com conteúdo desnecessário.
+    \item Filtragem para manter consistência nos artigos referenciais,
+    para não poluir o trabalho com conteúdo desnecessário.
 }
 \newcommand{\definicaoEspecificacoes}{
-    \item Por conseguinte, foi definido as especificações para o
-    uso da \acrshort{api}, no contexto do \acrfull{iesgf}.
+    \item Definição das regras de negocio, estipuladas em conjunto com o
+    bacharel de ciência da computação da instituição.
 }
 \newcommand{\implementacaoAPI}{
-    \item Com a definição das especificações, foi possivel realizar
-    a implementação do sistema, visando entregar o produto em est ágio
-    de testes, como \acrfull{mvp}.
+    \item Implementação do sistema, visando entregar o produto em estágio
+    de testes, como~\acrfull{mvp}.
 }
 \newcommand{\testeAPI}{
-    \item Por fim, após a bateria de testes técnicos, o \acrshort{mvp}
-    foi testado por um usuário para garantir que a \acrshort{api}
-    como um todo está funcionando conforme as especificações.
+    \item Testes \textit{end-to-end}\footnoteendtoend, realizados por um voluntário,
+    fornecido pelo bacharel de ciência da computação, para garantir que a
+    ~\acrshort{api} está funcionando conforme as especificações.
 }
 \begin{enumerate}[label=\arabic*\textdegree\space Etapa:,
     leftmargin=2cm]
@@ -46,24 +51,21 @@ Na tabela~\ref{tab:aspectos-metodologicos} foi evidenciado com base no
 tópico de objetivos específicos juntamente com os procedimentos
 metodológicos a relação dos mesmos, conforme a seguir:
 
-\begin{table}[h!]
-    \newcounter{rowno}
-    \setcounter{rowno}{0}
-    \centering
-    \begin{tabular}{|m{150px}|
-            >{\stepcounter{rowno}\therowno\textdegree\space Etapa}c|}
+\newcounter{rowno}
+\newcommand{\etp}{\stepcounter{rowno}\arabic{rowno}\textdegree\space Etapa}
+\begin{table}
+    \caption[Aspectos metodológicos e objetivos específicos]{Relação entre os
+    aspectos metodológicos e os objetivos específicos}
+    \begin{tblr}{|Q[c, 15em]|c|}
         \hline
-        \multicolumn{1}{|c|}{Objetivos Especificos} &
-        \multicolumn{1}{c|}{Etapas} \\ \hline
-        \multirow{3}{150px}{\buscaReferencia} & \\ \cline{2-2}
-        & \\ \cline{2-2}
-        & \\ \hline
-        \arquitetura                          & \\ \hline
-        \implementacao                        & \\ \hline
-        \testes                               & \\ \hline
-    \end{tabular}
-    \caption[Aspectos metodológicos e objetivos específicos]{
-        \textit{Relação entre os aspectos metodológicos e os
-        objetivos específicos}}
+        Objetivos Específicos              & Etapas \\ \hline
+        \SetCell[r=3]{m}{\buscaReferencia} & \etp   \\ \hline
+        & \etp   \\ \cline{2-2}
+        & \etp   \\ \hline
+        \arquitetura                       & \etp   \\ \hline
+        \implementacao                     & \etp   \\ \hline
+        \testes                            & \etp   \\ \hline
+    \end{tblr}
+    \sourcesearchfootnote
     \label{tab:aspectos-metodologicos}
 \end{table}

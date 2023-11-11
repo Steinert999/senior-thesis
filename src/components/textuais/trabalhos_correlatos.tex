@@ -17,35 +17,28 @@ obter informações para melhorar, resolver relacionados à mesma, e
 para melhor entendimento da pesquisa pelo autor.
 A tabela~\ref{tab:fontes-pesquisa} a seguir consta as fontes para a
 busca dos trabalhos:
-
 \begin{table}[h!]
-    \centering
-    \begin{tabular}{|m{4cm}|m{4.5cm}|}
+    \caption[Fontes de pesquisa]{Fontes de pesquisa dos conteúdos acadêmicos}
+    \begin{tblr}{|c|l|}
         \hline
-        Nome da Fonte       & Link de Acesso                \\ \hline
-        IEEExplore          & https://ieeexplore.ieee.org   \\ \hline
-        ACM Digital Library & https://dl.acm.org/           \\ \hline
-        Science Direct      & https://www.sciencedirect.com \\ \hline
-    \end{tabular}
-    \caption[Fontes de pesquisa]{\textit{Fontes para pesquisa dos
-    conteúdos acadêmicos}}
+        Nome da Fonte       & \SetCell[c=1]{c}{Link de Acesso}  \\ \hline
+        IEEExplore          & \url{https://ieeexplore.ieee.org} \\ \hline
+        ACM Digital Library & \url{https://dl.acm.org/}         \\ \hline
+        Springerlink        & \url{https://link.springer.com/}  \\ \hline
+    \end{tblr}
+    \sourcesearchfootnote
     \label{tab:fontes-pesquisa}
 \end{table}
-
 Na busca dos artigos, foi realizado filtragem seguindo alguns
 critérios de inclusão e exclusão, no qual garantem que o trabalho
 esteja atualizado, tenha consistência e garanta o embasamento
 correto das informações aqui conferidas.
-
+Os critérios estão informados na tabela \ref{tab:criterios-exclusao}
 \begin{table}[h!]
-    \centering
-    \begin{tabularx}{\textwidth}{
-        |>{\centering\arraybackslash}X
-        |>{\centering\arraybackslash}X
-        |}
+    \caption[Critérios de Inclusão e Exclusão]{Critérios de Inclusão e Exclusão}
+    \begin{tblr}{|X[c]|X[c]|}
         \hline
-        \multicolumn{1}{|c|}{Critérios de inclusão} & \multicolumn{1}{c|}{
-            Critérios de Exclusão} \\ \hline
+        Critérios de Inclusão & Critérios de Exclusão \\ \hline
         \begin{itemize}[leftmargin=10px]
             \item Artigos que estejam entre os anos de 2015 a 2023
             \item Artigos que contenham autenticação de documentos digitais,
@@ -58,76 +51,77 @@ correto das informações aqui conferidas.
             documentos digitais
             \item Artigos que tenham relação ao formato \acrshort{pdf}
         \end{itemize} \\ \hline
-    \end{tabularx}
-    \caption[Critérios de inclusão e exclusão]{\textit{Critérios de
-    inclusão e exclusão}}
+    \end{tblr}
+    \sourcesearchfootnote
     \label{tab:criterios-exclusao}
 \end{table}
+\clearpage
 
 Já a relação entre os dados obtidos de cada pesquisa, com suas
 respectivas strings de busca, e os trabalhos utilizados, constam na
 tabela~\ref{tab:resultado-pesquisa}, a seguir:
 
+\newcommand{\ieeexplorer}{
+    ("All Metadata": digital documents) \\ AND ("All Metadata":
+    authentication) \\
+    AND (("All Metadata": system) \\ OR ("All Metadata": API))
+}
+\newcommand{\acmdigital}{
+    [All: "digital documents"] \\ AND [All: "authentication"] \\ AND [[All: "
+    system"] \\ OR [All: "API"]]
+}
+\newcommand{\springerlink}{
+    'authentication AND "digital document" AND (system OR API)'
+}
 \begin{table}[h!]
-    \newcommand{\ieeexplorer}{
-        ("All Metadata": digital documents) AND ("All Metadata": authentication)
-        AND (("All Metadata": system) OR ("All Metadata": API))
-    }
-    \newcommand{\acmdigital}{
-        [All: "digital documents"] AND [All: "authentication"] AND [[All: "
-        system"] OR [All: "API"]]
-    }
-    \newcommand{\sciencedirect}{
-        ("digital documents" AND "authentication" AND ("system" OR "API"))
-    }
-    \centering
-    \begin{tabularx}{\textwidth}{
-        |>{\centering\arraybackslash}X
-        |>{\centering\arraybackslash}X
-        |>{\centering\arraybackslash}X
-        |>{\centering\arraybackslash}X
-        |}
-        \cline{2-4}
-        \multicolumn{1}{c|}{} & IEExplore & ACM Digital Library & ScienceDirect
-        \\ \hline
-        Strings de Busca & \ieeexplorer & \sciencedirect & \acmdigital
-        \\ \hline
-        Resultado & 110 & 51 & 65
-        \\ \hline
-        Utilizados & 2 & - & -
-        \\ \hline
-    \end{tabularx}
-    \caption[Resultado das pesquisas]{Resultado das
-    pesquisas para utilização nos Trabalhos Correlatos.}
+    \caption[Resultado das pesquisas]
+    {Resultado das pesquisas para utilização nos Trabalhos Correlatos.}
+    \begin{tblr}{|Q[c, 5.5em]|Q[c, 12.5em]|c|c|}
+        \hline
+        \SetCell[c=1]{c}{}  & Strings de Busca & Resultado & Utilizados \\ \hline
+        IEExplore           & \ieeexplorer     & 110       & 2          \\ \hline
+        ACM Digital Library & \acmdigital      & 65        & 1          \\ \hline
+        SpringerLink        & \springerlink    & 51        & -          \\ \hline
+    \end{tblr}
+    \sourcesearchfootnote
     \label{tab:resultado-pesquisa}
 \end{table}
 
-Já na tabela~\ref{tab:trabalhos-correlatos}, segue com algums dados sobre os
+Na tabela~\ref{tab:trabalhos-correlatos}, segue com algums dados sobre os
 trabalhos correlatos, como titulo, os escritores e o ano de publicação do mesmo.
 
 \begin{table}[h!]
-    \centering
-    \begin{tabularx}{1\textwidth}{
-        |>{\centering\arraybackslash}X
-        |>{\centering\arraybackslash}X
-        |>{\centering\arraybackslash}X|
-    }
+    \caption[Informações dos Trabalhos Correlatos]
+    {Informações referentes aos trabalhos selecionados}
+    \begin{tblr}{
+        colspec = {|Q[10em]|c|c|},
+        rowspec = { c c c },
+        row{2,6,8} = {green9}}
         \hline
-        \multicolumn{1}{|c|}{Título} & Autores & Data de Publicação
-        \\ \hline
-        \multicolumn{3}{|c|}{IEEExplore} \\ \hline
-        \citerow{ramadhan2023} \\ \hline
-        \citerow{iman2021} \\ \hline
-        \citerow{shree2022} \\ \hline
-        \multicolumn{3}{|c|}{ACM Digital Library} \\ \hline
-        \multicolumn{3}{|c|}{Science Direct} \\ \hline
-    \end{tabularx}
-    \caption[Informações dos Trabalhos Correlatos]{Informações referentes aos
-    trabalhos selecionados}
+        Título & Autores & Data de
+        Publicação \\ \hline
+        \SetCell[c=3]{c}{IEEExplore} \\ \hline
+        \citetitle*{ramadhan2023} & \citeauthor*{ramadhan2023} & \citedate{
+            ramadhan2023} \\ \hline
+        \citetitle*{iman2021} & \citeauthor*{iman2021} & \citedate{
+            iman2021} \\ \hline
+        \citetitle*{shree2022} & \citeauthor*{shree2022} & \citedate{
+            shree2022} \\ \hline
+        \SetCell[c=3]{c}{ACM Digital Library} \\ \hline
+        \citetitle*{singh2021} & \citeauthor*{singh2021} & \citedate{
+            singh2021} \\  \hline
+        \SetCell[c=3]{c}{SpringerLink} \\ \hline
+        \citetitle*{kabir2021} & \citeauthor*{kabir2021} & \citedate{
+            kabir2021} \\ \hline
+        % \citetitle*{sandoval2021} & \citeauthor*{sandoval2021} &
+        % \citedate{sandoval2021} \\ \hline
+    \end{tblr}
+    \sourcesearchfootnote
     \label{tab:trabalhos-correlatos}
 \end{table}
+\newpage
 
-Sobre o trabalho de \textcite{ramadhan2023}, é falado a respeito de como a
+Sobre o trabalho de~\textcite{ramadhan2023}, é falado a respeito de como a
 pandemia de COVID-19 levou a um aumento significativo no uso de assinaturas
 digitais em sistemas comerciais, especialmente na transferência de documentos
 entre indivíduos por meios digitais.
@@ -172,7 +166,6 @@ bancários, precisam ser verificados e autenticados.
 Porém o processamento, verificação e autenticação desses documentos é complexo e
 demorado.
 
-
 Para isto,~\textcite{shree2022} trazem consigo um sistema \textit{Web}, que,
 segundo os mesmos, passa em todos os critérios mencionados acima.
 O sistema em si, armazena os documentos em nuvem, fazendo com que cada
@@ -180,3 +173,36 @@ arquivo possua um \textit{hash}\hashfootnote, assim fazendo com que a
 verificação dos
 documentos seja mais rapida e mais conveniente que o modelo tradicional.
 
+Segundo o trabalho de~\textcite{singh2021} a questão da segurança de dados
+digitais via Internet tem crescido astronomicamente nos últimos anos como
+resultado da crescente popularidade da Internet.
+A marca d'água é usada para proteger dados digitais de indivíduos não
+autorizados em uma variedade de aplicativos.
+Para isso,~\textcite{singh2021} propôs uma técnica de marca d'água baseada em
+criptografia e compactação conjunta para a segurança de documentos digitais.
+Essa tecnologia fornece uma ferramenta para confidencialidade do sistema,
+proteção de direitos autorais e excelente desempenho de compactação.
+O método proposto por~\textcite{singh2021} consiste em três etapas principais:
+incorporação de várias marcas d'água usando uma transformada de contorno sem
+subamostragem, uma transformada de wavelet discreta redundante e decomposição
+de valor singular; criptografia e compactação usando SHA-256 e~\acrfull{lzw},
+respectivamente; e extração/recuperação de várias marcas d'água de uma imagem
+de cobertura potencialmente distorcida.
+
+Conforme dito por~\textcite{kabir2021} devido aos profundos avanços nas
+tecnologias de internet e comunicação digital,
+os processos de geração de dados estão passando por rápidas transformações na
+sociedade moderna.
+Atualmente, o sistema de comunicação digital \textit{on-line} desempenha um papel
+crucial ao facilitar o armazenamento e a disseminação de arquivos multimídia,
+incluindo imagens, áudio e vídeos.
+No entanto, durante a transmissão e o armazenamento de multimídia,
+os dados podem sofrer modificações que os tornam suscetíveis à exploração
+não autorizada por intrusos\cite{kabir2021}.
+
+Diante este cenário,~\textcite{kabir2021} apresenta uma análise da
+suscetibilidade de documentos digitais e um método para proteger e detectar
+alterações não autorizadas de dados multimídia.
+O método proposto por~\textcite{kabir2021} foi um algoritmo de marca d'água,
+baseado em um algoritmo de compressão com perdas, a fim de garantir a
+autenticação e detectar falsificações.
