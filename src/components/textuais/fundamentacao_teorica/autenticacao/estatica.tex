@@ -1,0 +1,66 @@
+\subsection{Autenticação estática via segredo compartilhado}
+\label{subsec:autenticacao-estatica-segredo-compartilhado}
+
+A autenticação estática é amplamente utilizada na forma de autenticação baseada
+em formulário de~\acrshort{id} e senha, sendo considerada a aplicação mais
+conhecida.
+Nesse método, o solicitante confirma sua identidade ao monitor, demonstrando
+conhecimento de um segredo compartilhado, geralmente revelando-o para eles\cite{idrus2013}.
+
+A autenticação estática geralmente funciona da
+seguinte forma: o requerente verifica para o requerido que está ciente de um
+segredo
+compartilhado, geralmente divulgando-o para tal.
+O requerido então determina se é o valor correto comparando-o com um mantido em
+um banco de dados de verificação\cite{idrus2013}.
+
+\begin{figure}[h!]
+    \caption[Diagrama representação autenticação de \acrshort{id} e senha]
+    {Diagrama de transição de estados representando autenticação com
+    \acrshort{id} e senha}
+    \begin{tikzpicture}
+    [
+        action/.style={draw, very thick, rounded corners, text width=2.5cm,
+        align=center},
+        initial/.style={draw, circle, fill, minimum size=10mm},
+        final/.style={draw, double, thick, circle, fill, minimum size=10mm},
+        decision/.style={draw, diamond, black, fill, minimum size=10mm},
+    ]
+        \node[initial](init);
+        \node[action](provision)[right=0.5cm of init]{O usuário fornece nome de
+        usuário e senha.};
+        \node[decision, label={
+            [text width=2.5cm, xshift=0.5cm]Nome de usuário e senha corretos?}]
+        (validation)[right=0.5cm of provision];
+        \node[action, text width=3cm](error)[below=1cm of validation]
+        {Nome de usuário e/ou senha inválidos. Solicite ao usuário novamente.}
+        \node[action](success)[right=1.5cm of validation]
+        {Autenticação do usuário bem-sucedida. Garantir acesso.};
+        \node[final](end)[right=0.5cm of success];
+        
+        \draw[thick, ->](init) edge (provision);
+        \draw[thick, ->](provision) edge (validation);
+        \draw[thick, ->](validation) --node[center, fill=white]{sim} (success);
+        \draw[thick, ->](validation) --node[center, fill=white]{não} (error);
+        \draw[thick, ->](error) -| (provision);
+        \draw[thick, ->](success) edge (end);
+    \end{tikzpicture}
+    \floatfoot{Adaptado de \cite{horsh2018}}
+    \label{fig:diagrama-autenticacao-id-senha}
+\end{figure}
+
+A autenticação de usuários baseada em senhas em sistemas computacionais tem
+sido a base da segurança de computadores por muitos anos.
+Para manter um segredo compartilhado entre um usuário e um sistema de
+computador,
+a ideia de um \acrshort{id} e senha é prática e econômica\cite{conklin2004}.
+
+Do ponto de vista dos aplicativos, era lógico adotar a autenticação de usuário
+baseada em senha quando havia menos aplicativos em comparação com o número de
+usuários.
+No entanto, essa suposição de que cada usuário possui um número limitado de
+programas
+não é mais válida devido ao crescimento da Internet e à tendência de computa
+ção ubíqua.
+Em muitos sistemas, os usuários têm várias contas e precisam memorizar diversos
+IDs e senhas\cite{conklin2004}.

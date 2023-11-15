@@ -1,0 +1,30 @@
+\subsection{Autenticação via \texit{token} de senha única}
+\label{subsec:autenticacao-token-senha-unica}
+
+Os \textit{tokens} de senha única ou~\acrfull{otp} são senhas dinâmicas criadas
+por um sistema gerador, no qual são capazes serem utilizadas apenas uma vez e
+por um período limitado, restringindo a janela de oportunidade para
+um atacante agir\cite{christiana2019}.
+
+Segundo~\textcite{huiyi2013}, a geração de~\acrshort{otp} pode ser realizada
+por meio de métodos de hash como~\acrfull{sha1} ou~\acrfull{md5}, assim como por
+meio de inteiros aleatórios ou contadores que aumentam a cada uso, a fim de
+sincronizar o tempo entre o usuário e o servidor.
+
+Os sistemas~\acrshort{otp} podem ser entendidos como uma ponte entre um
+mecanismo de autenticação mais seguro e a autenticação estática por senha.
+Isso facilita a migração de aplicativos legados, como unidades centrais de
+processamento (\textit{mainframes}) e sites, que foram originalmente projetados
+para funcionar apenas com senhas\cite{idrus2013}.
+
+Porém, os sistemas~\acrshort{otp} contém algumas vulnerabilidades também.
+Segundo~\textcite{hoyul2015} existem certas vulnerabilidades no~\acrshort{otp
+} que o tornam
+suscetível a ataques~\acrfull{mitm} e ataques~\acrfull{mitpcp1}.
+Durante a fase de inicialização do algoritmo~\acrshort{otp}, um servidor e os
+clientes trocam certos dados confidenciais.
+Um invasor pode efetivamente se autenticar se ele usar um ataque~\acrshort{mitm}
+para obter algumas informações confidenciais.
+Um invasor também pode obter acesso à memória do dispositivo e
+produzir valores~\acrshort{otp} se ele implantar código malicioso nos
+dispositivos dos usuários\cite{hoyul2015}.

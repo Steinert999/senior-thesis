@@ -1,0 +1,107 @@
+\section{Autenticação}
+\label{sec:autenticacao}
+
+
+A autenticação é o processo de verificação da identidade de um usuário ou
+sistema.
+É uma prova fornecida pelo requerente para afirmar que o usuário em questão
+realmente corresponde à identidade fornecida.
+O monitor, então, afirma a identidade do usuário.
+Os sistemas de autenticação são responsáveis por responder a duas perguntas
+fundamentais:
+quem é o usuário e o usuário é realmente quem afirma ser?
+Assim, a autenticação se apresenta como uma das maneiras mais promissoras de
+estabelecer confiança e aprimorar a segurança em aplicações comerciais\cite{
+    idrus2013}.
+
+A identificação, a autenticação e a autorização são frequentemente integradas em
+sistemas de segurança do mundo real.
+Por exemplo, um agente de segurança que monitora o acesso a uma instalação
+reconhece as pessoas que trabalham lá (identificação e autenticação) e permite
+que elas entrem (autorização) somente porque o agente reconhece seus rostos.
+Na era digital, os três processos devem ser únicos para serem viáveis
+\cite[p.97]{renaud2004}.
+\begin{figure}[h]
+    \centering
+    \caption[Áreas de preocupação]
+    {Áreas de preocupação durante um processo de autenticação}
+    \begin{tikzpicture}[
+        db/.style={cylinder,
+        draw,
+        cylinder uses custom fill,
+        cylinder body fill=yellow!20,
+        cylinder end fill=yellow!40,
+        aspect=0.25,
+        text width=2.5cm,
+        align=center,
+        shape border rotate=90,
+        },
+        parallelogram/.style={
+            trapezium,
+            trapezium stretches=false,
+            trapezium left angle=60,
+            trapezium right angle=120,
+        }
+    ]
+        \node[draw,align=center, text width=2.5cm](auth){Mecanismos de
+        Autenticação};
+        \node[draw,rounded corners=1mm](server)[right=1cm of auth]{Servidor};
+        \node[draw,db](db)[right=1cm of server]{Armazenamento de arquivos};
+        \node[draw,parallelogram](input)[below=0.5cm of auth]{Mecanismo de
+        entrada};
+        
+        \draw[thick, ->] (input) edge (auth);
+        \draw[thick, ->] (auth)  edge (server);
+        \draw[dashed, -] (server) edge (db);
+        
+        \draw[thick,-](-3,-2) -- (-3,-4.5);
+        \draw[thick,-](8,-2) -- (8,-4.5);
+        
+        \draw(-1.5,-2.5) node[align=center,text width=1.5cm](human){Fatores
+        Humanos};
+        \draw[thick, ->](human) -- (-3, -2.5);
+        \draw[thick, ->](human) -- (0, -2.5);
+        
+        \draw[thick, -](0,-2) -- (0, -3);
+        
+        \draw(4, -2.5) node(tech){Tecnologia};
+        \draw[thick, ->] (tech) -- (0, -2.5);
+        \draw[thick, ->] (tech) -- (8, -2.5);
+        
+        \draw(0.25, -3.5) node{Acessibilidade};
+        \draw[thick, -] (-1.5, -3.2) -- (-1.5, -3.9);
+        \draw[thick, -] (2, -3.2) -- (2, -3.9);
+        \draw[thick, <->] (-1.5, -3.8) -- (2, -3.8);
+        
+        \draw(2.5, -4.25) node(security){Segurança e Vulnerabilidade};
+        \draw[thick, ->](security) -- (-3,-4.25);
+        \draw[thick, ->](security) -- (8,-4.25);
+    
+    \end{tikzpicture}
+    \floatfoot{Adaptado de \cite{renaud2004}}
+\end{figure}
+\newpage
+Normalmente, a autenticação ocorre quando um usuário chega a uma interface de
+login e insere seu nome de usuário e senha, ou outro token seguro.
+Depois disso, é feita uma comparação entre essas credenciais e as credenciais
+mantidas em um banco de dados de serviços de diretório que serve como fonte
+autorizada para a autenticação da identidade do usuário.
+Basicamente, o usuário recebe acesso se as credenciais apresentadas
+corresponderem
+às credenciais mantidas no banco de dados de serviços de diretório; caso
+contrário,
+o acesso é negado\cite[p.112]{alnaji2020}.
+
+Existem várias metodologias de autenticação distintas,
+tais como autenticação estática por meio de um segredo compartilhado;
+\textit{token} de senha única; autenticação baseada em desafio-resposta criptográfica;
+identificação por radiofrequência; e biometria.
+O mecanismo de autenticação mais popular é a conhecida combinação de~\acrfull{id} e senha.
+Embora seja obviamente inseguro, é comumente utilizado.
+Isso se deve à simplicidade de uso da solução e ao reconhecimento imediato pelos
+usuários, facilitando sua implantação e aceitação\cite{idrus2013}.
+\input{components/textuais/fundamentacao_teorica/autenticacao/estatica}
+\input{components/textuais/fundamentacao_teorica/autenticacao/token-senha-unica}
+\input{components/textuais/fundamentacao_teorica/autenticacao/desafio-resposta}
+\input{components/textuais/fundamentacao_teorica/autenticacao/radiofrequencia}
+\input{components/textuais/fundamentacao_teorica/autenticacao/biometrica}

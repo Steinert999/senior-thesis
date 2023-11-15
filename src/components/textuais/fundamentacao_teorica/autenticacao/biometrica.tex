@@ -1,0 +1,81 @@
+\subsection{Autenticação biométrica}
+\label{subsec:autenticacao-biometrica}
+
+A biometria é uma técnica utilizada na ciência da computação para controlar o
+acesso e gerenciar a identidade de usuários.
+O termo biometria tem origem no grego antigo sendo composto pelos termos \textit{bios},
+que significa vida, e \textit{metron}, que se refere à medição.
+A ciência da biometria estuda como identificar indivíduos por meio de suas
+características físicas ou comportamentais\cite{idrus2013}.
+
+Portanto, a autenticação biométrica ou biometria é o processo pelo qual
+computadores
+são utilizados para identificar indivíduos, apesar das diferenças existentes
+de cada um.
+Cada técnica biométrica é incapaz de determinar a identidade "verdadeira" de um
+indivíduo.
+Em vez disso, a identificação de uma pessoa e quaisquer características pessoais
+fornecidas no momento da inscrição no sistema são as únicas informações que a
+tecnologia biométrica pode associar a elas, além de um padrão biométrico\cite{wayman2005}.
+
+A natureza humana faz com que as pessoas confiem naturalmente nas características
+físicas do corpo humano que são visíveis, como as feições do rosto, a voz, o
+caminhar,
+a assinatura, entre outros.
+Como esses traços são particulares de cada indivíduo, esses métodos são
+excelentes para identificar outras pessoas\cite{alsaadi2015}.
+
+\begin{figure}[h!]
+    \centering
+    \caption[Classificação geral dos sistemas biométricos]{Classificação
+    geral dos sistemas biométricos}
+    \begin{tikzpicture}[
+        action/.style={draw, very thick, rounded corners,
+        text width=2.5cm,
+        align=center}
+    ]
+        \node[action](main){Autenticação baseada em biometria};
+        \node[action](physiological)[below left=1cm and 0.1cm of main]
+        {Fisiológico};
+        \node[action](behavioral)[below right=1cm and 0.1cm of main]
+        {Comportamental};
+        \node(p-childs)[below=1cm of physiological]{
+            \begin{tblr}{|c|}
+                \hline
+                Reconhecimento de faces   \\ \hline
+                Geometria da mão          \\ \hline
+                Impressão digital         \\ \hline
+                Íris                      \\ \hline
+                Retina                    \\ \hline
+                Reconhecimento de orelhas \\ \hline
+            \end{tblr}
+        }
+        \node(b-childs)[below=1cm of behavioral]{
+            \begin{tblr}{|c|}
+                \hline
+                Voz            \\ \hline
+                Assinatura     \\ \hline
+                Marcha         \\ \hline
+                Toque de tecla \\ \hline
+                Dinâmica       \\ \hline
+                Lábios         \\ \hline
+                Movimentos     \\ \hline
+            \end{tblr}
+        }
+        
+        \draw[thick] (main.south) -| (0, -1) edge[->] (physiological.north);
+        \draw[thick] (main.south) -| (0, -1) edge[->] (behavioral.north);
+        \draw[thick, ->](physiological) edge (p-childs);
+        \draw[thick, ->](behavioral) edge (b-childs);
+    \end{tikzpicture}
+    \floatfoot{Adaptado de \cite{alsaadi2015}}
+\end{figure}
+\clearpage
+A principal vantagem dessas técnicas de autenticação é a estreita conexão que
+existe entre o usuário e seu autenticador, que é o dado biométrico.
+Além disso, ao contrário da maioria das outras técnicas de autenticação,
+é difícil replicar as características biométricas de um indivíduo.
+No entanto, a autenticação biométrica tem uma desvantagem, que é a imprevisibilidade
+do resultado de verificação.
+Por exemplo, na autenticação por impressão digital, um erro pode ocorrer devido
+ao alinhamento inadequado do dedo\cite{idrus2013}.

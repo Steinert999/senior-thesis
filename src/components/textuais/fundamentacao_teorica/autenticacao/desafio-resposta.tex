@@ -1,0 +1,57 @@
+\subsection{Autenticação baseada em desafio-resposta}
+\label{subsec:autenticacao-desafio-resposta}
+
+O~\acrfull{cram}, ou mecanismo de autenticação desafio-resposta, é um
+procedimento
+cujo objetivo é verificar a autenticidade de uma entidade que solicita acesso,
+exigindo que ela demonstre estar ciente de um segredo, sem revelá-lo ao
+verificador.
+O procedimento consiste no verificador oferecendo um desafio ao solicitante a
+partir de um conjunto de desafios preparados.
+O solicitante recebe um desafio que varia ao longo do tempo do verificador e,
+em resposta, utiliza uma função dependente do segredo para gerar uma resposta
+Caso o solicitante responda corretamente ao desafio oferecido, ele é autenticado
+e recebe acesso a um computador, rede ou outro recurso\cite{gilad2013}.
+
+\begin{figure}[h!]
+    \centering
+    \caption[Diagrama representação autenticação via desafio-resposta]
+    {Diagrama de transição de estados representando autenticação com
+    desafio-resposta}
+    \begin{tikzpicture}
+    [
+        action/.style={draw, very thick, rounded corners, text width=1.5cm,
+        align=center},
+        initial/.style={draw, circle, fill, minimum size=10mm},
+        final/.style={draw, double, thick, circle, fill, minimum size=10mm},
+        decision/.style={draw, diamond, black, fill, minimum size=10mm},
+    ]
+        \node[initial](begin);
+        \node[action](request)[right=0.5cm of begin]
+        {Solicitação de autenticação.};
+        \node[action](challenge)[right=0.5cm of request]
+        {Desafio enviado ao usuário.};
+        \node[decision, label={
+            [text width=2.5cm, align=center]
+            O usuário tenta fazer o desafio, a resposta está correta?}]
+        (attempt)[right=0.75cm of challenge];
+        \node[action](success)[right=1.25cm of attempt]{Acesso garantido.};
+        \node[final](end)[right=0.5cm of success];
+        
+        \draw[thick, ->](begin) edge (request);
+        \draw[thick, ->](request) edge (challenge);
+        \draw[thick, ->](challenge) edge (attempt);
+        \draw[thick, ->](attempt) -- node[center, fill=white]{sim}(success);
+        \draw[thick, ->](attempt.south) |- (5,-2)
+        node[center, above, xshift=0.25cm,fill=white]{não} -| (challenge.south);
+        \draw[thick, ->](success) edge (end);
+    \end{tikzpicture}
+    \floatfoot{Adaptado de \cite{gilad2013}}
+    \label{fig:diagrama-autenticacao-desafio-resposta}
+\end{figure}
+
+Segundo~\textcite{idrus2013} caso seja executada de forma adequada, a autenticação
+via desafio-resposta criptográfica se mostra uma abordagem de autenticação extremamente
+eficiente e confiável.
+No entanto, a manutenção pode exigir um grande investimento de tempo, energia e
+recursos financeiros.
