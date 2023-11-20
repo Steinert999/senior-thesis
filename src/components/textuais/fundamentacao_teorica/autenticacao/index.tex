@@ -21,66 +21,67 @@ reconhece as pessoas que trabalham lá (identificação e autenticação) e perm
 que elas entrem (autorização) somente porque o agente reconhece seus rostos.
 Na era digital, os três processos devem ser únicos para serem viáveis
 \cite[p.97]{renaud2004}.
-\begin{figure}[h]
-    \centering
+
+\begin{figure}[h!]
     \caption[Áreas de preocupação]
     {Áreas de preocupação durante um processo de autenticação}
-    \begin{tikzpicture}[
-        db/.style={cylinder,
-        draw,
-        cylinder uses custom fill,
-        cylinder body fill=yellow!20,
-        cylinder end fill=yellow!40,
-        aspect=0.25,
-        text width=2.5cm,
-        align=center,
-        shape border rotate=90,
-        },
-        parallelogram/.style={
-            trapezium,
-            trapezium stretches=false,
-            trapezium left angle=60,
-            trapezium right angle=120,
-        }
-    ]
-        \node[draw,align=center, text width=2.5cm](auth){Mecanismos de
-        Autenticação};
-        \node[draw,rounded corners=1mm](server)[right=1cm of auth]{Servidor};
-        \node[draw,db](db)[right=1cm of server]{Armazenamento de arquivos};
-        \node[draw,parallelogram](input)[below=0.5cm of auth]{Mecanismo de
-        entrada};
+    \begin{adjustbox}{width=0.6\columnwidth, center}
+        \begin{tikzpicture}[
+            db/.style={cylinder,
+            draw,
+            cylinder uses custom fill,
+            cylinder body fill=yellow!20,
+            cylinder end fill=yellow!40,
+            aspect=0.25,
+            text width=2.5cm,
+            align=center,
+            shape border rotate=90,
+            },
+            parallelogram/.style={
+                trapezium,
+                trapezium stretches=false,
+                trapezium left angle=60,
+                trapezium right angle=120,
+            }
+        ]
+            \node[draw,align=center, text width=2.5cm](auth){Mecanismos de
+            Autenticação};
+            \node[draw,rounded corners=1mm](server)[right=1cm of auth]{Servidor};
+            \node[draw,db](db)[right=1cm of server]{Armazenamento de arquivos};
+            \node[draw,parallelogram](input)[below=0.5cm of auth]{Mecanismo de
+            entrada};
+            
+            \draw[thick, ->] (input) edge (auth);
+            \draw[thick, ->] (auth)  edge (server);
+            \draw[dashed, -] (server) edge (db);
+            
+            \draw[thick,-](-3,-2) -- (-3,-4.5);
+            \draw[thick,-](8,-2) -- (8,-4.5);
+            
+            \draw(-1.5,-2.5) node[align=center,text width=1.5cm](human){Fatores
+            Humanos};
+            \draw[thick, ->](human) -- (-3, -2.5);
+            \draw[thick, ->](human) -- (0, -2.5);
+            
+            \draw[thick, -](0,-2) -- (0, -3);
+            
+            \draw(4, -2.5) node(tech){Tecnologia};
+            \draw[thick, ->] (tech) -- (0, -2.5);
+            \draw[thick, ->] (tech) -- (8, -2.5);
+            
+            \draw(0.25, -3.5) node{Acessibilidade};
+            \draw[thick, -] (-1.5, -3.2) -- (-1.5, -3.9);
+            \draw[thick, -] (2, -3.2) -- (2, -3.9);
+            \draw[thick, <->] (-1.5, -3.8) -- (2, -3.8);
+            
+            \draw(2.5, -4.25) node(security){Segurança e Vulnerabilidade};
+            \draw[thick, ->](security) -- (-3,-4.25);
+            \draw[thick, ->](security) -- (8,-4.25);
         
-        \draw[thick, ->] (input) edge (auth);
-        \draw[thick, ->] (auth)  edge (server);
-        \draw[dashed, -] (server) edge (db);
-        
-        \draw[thick,-](-3,-2) -- (-3,-4.5);
-        \draw[thick,-](8,-2) -- (8,-4.5);
-        
-        \draw(-1.5,-2.5) node[align=center,text width=1.5cm](human){Fatores
-        Humanos};
-        \draw[thick, ->](human) -- (-3, -2.5);
-        \draw[thick, ->](human) -- (0, -2.5);
-        
-        \draw[thick, -](0,-2) -- (0, -3);
-        
-        \draw(4, -2.5) node(tech){Tecnologia};
-        \draw[thick, ->] (tech) -- (0, -2.5);
-        \draw[thick, ->] (tech) -- (8, -2.5);
-        
-        \draw(0.25, -3.5) node{Acessibilidade};
-        \draw[thick, -] (-1.5, -3.2) -- (-1.5, -3.9);
-        \draw[thick, -] (2, -3.2) -- (2, -3.9);
-        \draw[thick, <->] (-1.5, -3.8) -- (2, -3.8);
-        
-        \draw(2.5, -4.25) node(security){Segurança e Vulnerabilidade};
-        \draw[thick, ->](security) -- (-3,-4.25);
-        \draw[thick, ->](security) -- (8,-4.25);
-    
-    \end{tikzpicture}
+        \end{tikzpicture}
+    \end{adjustbox}
     \floatfoot{Adaptado de \cite{renaud2004}}
 \end{figure}
-\newpage
 Normalmente, a autenticação ocorre quando um usuário chega a uma interface de
 login e insere seu nome de usuário e senha, ou outro token seguro.
 Depois disso, é feita uma comparação entre essas credenciais e as credenciais
