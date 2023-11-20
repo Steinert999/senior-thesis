@@ -9,7 +9,19 @@
         \url{https://www.voitto.com.br/blog/artigo/o-que-e-hash-e-como-funciona}
     }
 }
-\chapter{Trabalhos correlatos}\label{ch:trabalhos-correlatos}
+\newcommand{\ieeexplorer}{
+    ("All Metadata": digital documents) \\ AND ("All Metadata":
+    authentication) \\
+    AND (("All Metadata": system) \\ OR ("All Metadata": API))
+}
+\newcommand{\acmdigital}{
+    [All: "digital documents"] \\ AND [All: "authentication"] \\ AND [[All: "
+    system"] \\ OR [All: "API"]]
+}
+\newcommand{\springerlink}{
+    'authentication AND "digital documents" AND (system OR API)'
+}
+\chapter{Trabalhos Correlatos}\label{ch:trabalhos-correlatos}
 
 Neste capítulo serão apresentados trabalhos que fazem parte da
 estruturação da pesquisa, no qual foi de grande importancia para
@@ -19,7 +31,10 @@ A tabela~\ref{tab:fontes-pesquisa} a seguir consta as fontes para a
 busca dos trabalhos:
 \begin{table}[h!]
     \caption[Fontes de pesquisa]{Fontes de pesquisa dos conteúdos acadêmicos}
-    \begin{tblr}{|c|l|}
+    \begin{tblr}{
+        colspec={|c|l|},
+        rowspec={ c c },
+    }
         \hline
         Nome da Fonte       & \SetCell[c=1]{c}{Link de Acesso}  \\ \hline
         IEEExplore          & \url{https://ieeexplore.ieee.org} \\ \hline
@@ -31,27 +46,36 @@ busca dos trabalhos:
 \end{table}
 
 Também consta a representação gráfica da porcentagem dos resultados obtidos
-através das pesquisas nas diferentes fontes, na figura~\ref{fig:grafico-resultados-pesquisa}.
+através das pesquisas nas diferentes fontes, na figura~\ref{fig:grafico
+-resultados-pesquisa}.
 
 \begin{figure}[h!]
     \caption[Gráfico de resultados da pesquisa]{Gráfico de resultados de
     pesquisa}
     \begin{tikzpicture}
-        \pie[radius=2, rotate=90]{48.67/IEEXplore, 28.76/ACM Digital Library, 22
+        \pie[radius=2.25, rotate=90]{48.67/IEEXplore, 28.76/ACM Digital
+        Library, 22
         .56/Springerlink}
     \end{tikzpicture}
     \sourcesearchfootnote
     \label{fig:grafico-resultados-pesquisa}
 \end{figure}
-\newpage
+
 Na busca dos artigos, foi realizado filtragem seguindo alguns
 critérios de inclusão e exclusão, no qual garantem que o trabalho
 esteja atualizado, tenha consistência e garanta o embasamento
 correto das informações aqui conferidas.
 Os critérios estão informados na tabela~\ref{tab:criterios-exclusao}.
+
 \begin{table}[h]
     \caption[Critérios de Inclusão e Exclusão]{Critérios de Inclusão e Exclusão}
-    \begin{tblr}{|X[c]|X[c]|}
+    \begin{tblr}{
+        colspec={|X[c]|X[c]|},
+        rowspec={ c c },
+        stretch=0,
+        rows={ht=\baselineskip},
+        cell{2}{1-2}={font=\small}
+    }
         \hline
         Critérios de Inclusão & Critérios de Exclusão \\ \hline
         \begin{itemize}[leftmargin=10px]
@@ -70,38 +94,35 @@ Os critérios estão informados na tabela~\ref{tab:criterios-exclusao}.
     \sourcesearchfootnote
     \label{tab:criterios-exclusao}
 \end{table}
-\newpage
 
 Já a relação entre os dados obtidos de cada pesquisa, com suas
 respectivas strings de busca, e os trabalhos utilizados, constam na
 tabela~\ref{tab:resultado-pesquisa}, a seguir:
 
-\newcommand{\ieeexplorer}{
-    ("All Metadata": digital documents) \\ AND ("All Metadata":
-    authentication) \\
-    AND (("All Metadata": system) \\ OR ("All Metadata": API))
-}
-\newcommand{\acmdigital}{
-    [All: "digital documents"] \\ AND [All: "authentication"] \\ AND [[All: "
-    system"] \\ OR [All: "API"]]
-}
-\newcommand{\springerlink}{
-    'authentication AND "digital document" AND (system OR API)'
-}
 \begin{table}[h!]
+    \centering
     \caption[Resultado das pesquisas]
     {Resultado das pesquisas para utilização nos Trabalhos Correlatos.}
-    \begin{tblr}{|Q[c, 5.5em]|Q[c, 12.5em]|c|c|}
-        \hline
-        \SetCell[c=1]{c}{}  & Strings de Busca & Resultado & Utilizados \\ \hline
-        IEExplore           & \ieeexplorer     & 110       & 2          \\ \hline
-        ACM Digital Library & \acmdigital      & 65        & 1          \\ \hline
-        SpringerLink        & \springerlink    & 51        & 1          \\ \hline
-    \end{tblr}
+    \begin{adjustbox}{width=0.9\columnwidth, center}
+        \begin{tblr}{
+            colspec={|X[c]|X|c|c|},
+            rowspec={ m{1cm} m{1cm} m{1cm} m{1cm} },
+            stretch=0,
+            row{1}={font=\small},
+            rows={ht=\baselineskip},
+            cell{2-4}{1-2}={font=\scriptsize},
+        }
+            \hline
+            & Strings de Busca & Resultado & Utilizados \\ \hline
+            IEExplore           & \ieeexplorer     & 110       & 4          \\ \hline
+            ACM Digital Library & \acmdigital      & 65        & 1          \\ \hline
+            SpringerLink        & \springerlink    & 50        & 2          \\ \hline
+        \end{tblr}
+    \end{adjustbox}
+    
     \sourcesearchfootnote
     \label{tab:resultado-pesquisa}
 \end{table}
-\newpage
 
 Na tabela~\ref{tab:trabalhos-correlatos}, segue com algums dados sobre os
 trabalhos correlatos, como titulo, os escritores e o ano de publicação do mesmo.
@@ -112,30 +133,27 @@ trabalhos correlatos, como titulo, os escritores e o ano de publicação do mesm
     \begin{tblr}{
         colspec = {|Q[10em]|c|c|},
         rowspec = { c c c },
-        row{2,6,8} = {green9}}
+        row{2,8,10} = {green9, font=\small},
+        cell{3-7,9,11-Z}{1-3}={font=\scriptsize}
+    }
         \hline
-        Título & Autores & Data de
-        Publicação \\ \hline
+        Título & Autores & Data
+        de Publicação \\ \hline
         \SetCell[c=3]{c}{IEEExplore} \\ \hline
-        \citetitle*{ramadhan2023} & \citeauthor*{ramadhan2023} & \citedate{
-            ramadhan2023} \\ \hline
-        \citetitle*{iman2021} & \citeauthor*{iman2021} & \citedate{
-            iman2021} \\ \hline
-        \citetitle*{shree2022} & \citeauthor*{shree2022} & \citedate{
-            shree2022} \\ \hline
+        \citetitle*{ramadhan2023}    & \citeauthor*{ramadhan2023}    & \citedate{ramadhan2023}    \\ \hline
+        \citetitle*{iman2021}        & \citeauthor*{iman2021}        & \citedate{iman2021}        \\ \hline
+        \citetitle*{shree2022}       & \citeauthor*{shree2022}       & \citedate{shree2022}       \\ \hline
+        \citetitle*{chakraborty2016} & \citeauthor*{chakraborty2016} & \citedate{chakraborty2016} \\ \hline
+        \citetitle*{zachariah2016}   & \citeauthor*{zachariah2016}   & \citedate{zachariah2016}   \\ \hline
         \SetCell[c=3]{c}{ACM Digital Library} \\ \hline
-        \citetitle*{singh2021} & \citeauthor*{singh2021} & \citedate{
-            singh2021} \\  \hline
+        \citetitle*{singh2021}       & \citeauthor*{singh2021}       & \citedate{singh2021}       \\ \hline
         \SetCell[c=3]{c}{SpringerLink} \\ \hline
-        \citetitle*{kabir2021} & \citeauthor*{kabir2021} & \citedate{
-            kabir2021} \\ \hline
-        % \citetitle*{sandoval2021} & \citeauthor*{sandoval2021} &
-        % \citedate{sandoval2021} \\ \hline
+        \citetitle*{kabir2021}       & \citeauthor*{kabir2021}       & \citedate{kabir2021}       \\ \hline
+        \citetitle*{wojtowicz2016}   & \citeauthor*{wojtowicz2016}   & \citedate{wojtowicz2016}   \\ \hline
     \end{tblr}
     \sourcesearchfootnote
     \label{tab:trabalhos-correlatos}
 \end{table}
-\newpage
 
 Sobre o trabalho de~\textcite{ramadhan2023}, é falado a respeito de como a
 pandemia de COVID-19 levou a um aumento significativo no uso de assinaturas
@@ -189,6 +207,60 @@ arquivo possua um \textit{hash}\hashfootnote, assim fazendo com que a
 verificação dos
 documentos seja mais rapida e mais conveniente que o modelo tradicional.
 
+A substituição de documentos em papel por documentos eletrônicos está se
+tornando
+cada vez mais comum no mundo moderno, com o surgimento do \textit{e-business},
+\textit{e-government} e \textit{e-commerce}.
+No entanto, a adulteração de informações e a falsificação de assinaturas têm
+aumentado de forma impressionante.
+Qualquer pessoa que assine um documento digitalmente, seja uma empresa ou um
+usuário individual, pode se tornar vítima de crimes digitais\cite{
+    chakraborty2016}.
+
+Para este cenário~\textcite{chakraborty2016} propôs uma plataforma de
+assinatura digital \textit{cloud}, habilitada para autenticação biométrica, que
+cria uma solução de segurança aprimorada para a indústria de criptografia.
+A proposta envolveu a criação e validação de assinaturas digitais usando um
+\textit{framework} baseado em nuvem.
+Similar à~\acrfull{pki}, cada usuário possui um conjunto de duas chaves: uma
+chave privada e uma chave pública.
+Para acessar a chave privada e assinar um documento, o signatário deve validar
+sua identidade biométrica (padrão de veias) e realizar uma verificação única
+da chave.
+Antes de ter sua assinatura ou documento verificado, o destinatário deve
+utilizar
+adicionalmente seu padrão de veias para estabelecer sua identidade.
+O destinatário precisa fornecer ao sistema a chave única compartilhada e a chave
+pública do signatário para concluir o procedimento de verificação.
+
+Para~\textcite{zachariah2016} obter documentos importantes assinados inicialmente
+era uma tarefa estressante, especialmente se o signatário não estivesse presente.
+Neste caso, o único método para obter a assinatura nos documentos seria enviá-los
+pelo correio, aguardar que os assinassem e, em seguida, enviar o documento de volta.
+Então, as assinaturas digitais entraram em cena, tornando todo o procedimento
+simples e acessível.
+Uma desvantagem desse método é que os documentos assinados com assinaturas
+digitais são salvos em cópia eletrônica, enquanto muitos documentos legais e
+oficiais (como certidões de nascimento, certificados de seguro, decretos de
+divórcio, acordos de divisão de propriedade, passaportes e carteiras de
+motorista) ainda precisam ser apresentados e assinados em cópia física\cite{zachariah2016}.
+
+\textcite{zachariah2016} sugere uma maneira pela qual, utilizando~\acrfull{iot},
+uma pessoa possa assinar um documento em um local específico e ter essa assinatura
+refletida simultaneamente em um documento similar em outro lugar, em tempo real.
+O usuário principal (autenticador) utiliza uma caneta digital para assinar o
+documento em papel.
+
+A área de assinatura do documento contém um padrão de pontos específico, que
+auxilia a caneta digital a rastrear os movimentos conforme a assinatura é criada.
+Enquanto o papel está sendo assinado, a caneta digital também registra a
+impressão digital do usuário para posterior verificação.
+As informações obtidas são então convertidas em \textit{bits} binários e
+codificadas usando criptografia de DNA.
+Esses dados criptografados são transmitidos ao usuário secundário (receptor),
+onde é decodificado e impresso na segunda cópia do documento.
+Assim, a assinatura é transferida de forma segura de um papel para o outro\cite{zachariah2016}.
+
 Segundo o trabalho de~\textcite{singh2021} a questão da segurança de dados
 digitais via Internet tem crescido astronomicamente nos últimos anos como
 resultado da crescente popularidade da Internet.
@@ -223,3 +295,19 @@ alterações não autorizadas de dados multimídia.
 O método proposto por~\textcite{kabir2021} foi um algoritmo de marca d'água,
 baseado em um algoritmo de compressão com perdas, a fim de garantir a
 autenticação e detectar falsificações.
+
+A crescente quantidade e qualidade dos sensores integrados, a capacidade de
+computação
+dos dispositivos e a conectividade sem fio permitem aproveitar a autenticação
+biométrica contínua em dispositivos móveis.
+No entanto, o ambiente do usuário pode reduzir a precisão do reconhecimento
+biométrico ou tornar o procedimento de aquisição desagradável para um usuário
+móvel em um determinado momento, portanto, a utilidade real do aplicativo de
+autenticação biométrica depende do contexto de uso\cite{wojtowicz2016}.
+
+\textcite{wojtowicz2016} apresentam um modelo de autenticação biométrica baseado
+em contexto para dispositivos móveis.
+O modelo genérico projetado e verificado com uma implementação de prova de
+conceito
+serve como base para a construção de sistemas de autenticação móvel adaptáveis e
+extensíveis, dependentes do contexto.

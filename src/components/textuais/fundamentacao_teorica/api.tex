@@ -18,76 +18,75 @@ utilizar esses protocolos, para poderem utilizar os serviços fornecidos.
 A Figura~\ref{fig:diagrama-fluxo-api} exemplifica as relações e
 comunicações entre diversos sistemas e outras~\acrshortpl{api}.
 
-Para~\textcite{borgogno2019} as~\acrshortpl{api} melhoram a
-interoperabilidade entre várias camadas e facilitam o compartilhamento de
-fluxos ou conjuntos de dados entre os detentores de dados, simplificando o
-acesso de uma organização aos dados coletados por outra.
-
 \begin{figure}[h!]
-    \centering
-    \begin{tikzpicture}[
-        ext/.style={circle,
-        draw,
-        fill=blue!5,
-        thin,
-        inner sep=0pt,
-        align=center,
-        text width=1.8cm,
-        },
-        api/.style={circle,
-        draw,
-        fill=green!5,
-        thin,
-        inner sep=0pt,
-        align=center,
-        text width=2cm,
-        },
-        db/.style={cylinder,
-        draw,
-        cylinder uses custom fill,
-        cylinder body fill=yellow!20,
-        cylinder end fill=yellow!40,
-        aspect=0.25,
-        shape border rotate=90,
-        height=3cm,
-        minimum height=1.5cm,
-        minimum width=1.5cm
-        }]
-        \node[ext](web){Web Applications};
-        \node[ext](mobile)[right=0.2cm of web]{Mobile Applications};
-        \node[ext](desktop)[right=0.2cm of mobile]{Desktop Applications};
-        \node[ext](backend)[right=0.2cm of desktop]{Backend Servers};
-        \node[ext](other)[right=0.2cm of backend]{Other \acrshortpl{api}};
-        \node[api](api)[below=of desktop]{\acrshort{api}}
-        \node[db](db)[below=of api]{Database}
-        
-        % requests
-        \draw[thick, ->]
-        (web) edge [bend left=-45] (api)
-        (mobile) edge [bend left=-45] (api)
-        (desktop) edge[bend left=-10] (api)
-        (backend) edge [bend right=-45] (api)
-        (other) edge [bend right=-45] (api);
-        %responses
-        \draw[dashed, ->]
-        (api) edge [bend right=-55] (web)
-        (api) edge [bend right=-55] (mobile)
-        (api) edge[bend right=10] (desktop)
-        (api) edge[bend left=-55] (backend)
-        (api) edge[bend left=-55] (other);
-        
-        \draw[thick, ->]
-        (api) edge[bend left=-10] (db);
-        \draw[dashed, ->]
-        (db) edge[bend right=10] (api);
-    \end{tikzpicture}
+    \begin{adjustbox}{width=0.8\columnwidth, center}
+        \begin{tikzpicture}[
+            ext/.style={circle,
+            draw,
+            fill=blue!5,
+            thin,
+            inner sep=0pt,
+            align=center,
+            text width=1.8cm,
+            },
+            api/.style={circle,
+            draw,
+            fill=green!5,
+            thin,
+            inner sep=0pt,
+            align=center,
+            text width=2cm,
+            },
+            db/.style={cylinder,
+            draw,
+            cylinder uses custom fill,
+            cylinder body fill=yellow!20,
+            cylinder end fill=yellow!40,
+            aspect=0.25,
+            shape border rotate=90,
+            height=3cm,
+            minimum height=1.5cm,
+            minimum width=1.5cm
+            }]
+            \node[ext](web){Web Applications};
+            \node[ext](mobile)[right=0.2cm of web]{Mobile Applications};
+            \node[ext](desktop)[right=0.2cm of mobile]{Desktop Applications};
+            \node[ext](backend)[right=0.2cm of desktop]{Backend Servers};
+            \node[ext](other)[right=0.2cm of backend]{Other \acrshortpl{api}};
+            \node[api](api)[below=of desktop]{\acrshort{api}}
+            \node[db](db)[below=of api]{Database}
+            
+            % requests
+            \draw[thick, ->]
+            (web) edge [bend left=-45] (api)
+            (mobile) edge [bend left=-45] (api)
+            (desktop) edge[bend left=-10] (api)
+            (backend) edge [bend right=-45] (api)
+            (other) edge [bend right=-45] (api);
+            %responses
+            \draw[dashed, ->]
+            (api) edge [bend right=-55] (web)
+            (api) edge [bend right=-55] (mobile)
+            (api) edge[bend right=10] (desktop)
+            (api) edge[bend left=-55] (backend)
+            (api) edge[bend left=-55] (other);
+            
+            \draw[thick, ->]
+            (api) edge[bend left=-10] (db);
+            \draw[dashed, ->]
+            (db) edge[bend right=10] (api);
+        \end{tikzpicture}
+    \end{adjustbox}
     \caption[Fluxo de uma \acrshort{api}]{
         Diagrama mostrando o fluxo de uma \acrshort{api} com diversos clientes}
     \label{fig:diagrama-fluxo-api}
     \sourcesearchfootnote
 \end{figure}
 
-\newpage
+Para~\textcite{borgogno2019} as~\acrshortpl{api} melhoram a
+interoperabilidade entre várias camadas e facilitam o compartilhamento de
+fluxos ou conjuntos de dados entre os detentores de dados, simplificando o
+acesso de uma organização aos dados coletados por outra.
 
 Do ponto de vista tecnológico, segundo~\textcite{russel2019} os serviços
 on-line não podem ser combinados ou integrados sem~\acrshortpl{api}.
@@ -112,3 +111,4 @@ De acordo com~\textcite{russel2019}, existem diferentes categorias de
     \item As~\acrshortpl{api} de análise permitem que os desenvolvedores
     obtenham informações sobre os visitantes de seus sites
 \end{itemize}
+
