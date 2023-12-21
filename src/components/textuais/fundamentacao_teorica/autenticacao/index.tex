@@ -18,7 +18,7 @@ A identificação, a autenticação e a autorização são frequentemente integr
 sistemas de segurança do mundo real.
 Por exemplo, um agente de segurança que monitora o acesso a uma instalação
 reconhece as pessoas que trabalham lá (identificação e autenticação) e permite
-que elas entrem (autorização) somente porque o agente reconhece seus rostos.
+que elas entrem (autorização) somente porque o agente reconhece os rostos.
 Na era digital, os três processos devem ser únicos para serem viáveis
 \cite[p.97]{renaud2004}.
 
@@ -83,22 +83,23 @@ Na era digital, os três processos devem ser únicos para serem viáveis
     \floatfoot{Adaptado de \cite{renaud2004}}
 \end{figure}
 Normalmente, a autenticação ocorre quando um usuário chega a uma interface de
-login e insere seu nome de usuário e senha, ou outro token seguro.
+login e insere nome de usuário e senha, ou outro token seguro.
 Depois disso, é feita uma comparação entre essas credenciais e as credenciais
 mantidas em um banco de dados de serviços de diretório que serve como fonte
 autorizada para a autenticação da identidade do usuário.
 Basicamente, o usuário recebe acesso se as credenciais apresentadas
-corresponderem às credenciais mantidas no banco de dados de serviços de diretório,
-caso contrário, o acesso é negado\cite[p.112]{alnaji2020}.
+corresponderem às credenciais mantidas no banco de dados de serviços de
+diretório, caso contrário, o acesso é negado\cite[p.112]{alnaji2020}.
 
 Existem várias metodologias de autenticação distintas,
 tais como autenticação estática por meio de um segredo compartilhado;
-\textit{token} de senha única; autenticação baseada em desafio-resposta criptográfica;
+\textit{token} de senha única; autenticação baseada em desafio-resposta
+criptográfica;
 identificação por radiofrequência; e biometria.
 O mecanismo de autenticação mais popular é a conhecida combinação de~\acrfull{id} e senha.
 Embora seja obviamente inseguro, é comumente utilizado.
 Isso se deve à simplicidade de uso da solução e ao reconhecimento imediato pelos
-usuários, facilitando sua implantação e aceitação\cite{idrus2013}.
+usuários, facilitando a implantação e aceitação\cite{idrus2013}.
 \input{components/textuais/fundamentacao_teorica/autenticacao/estatica}
 \input{components/textuais/fundamentacao_teorica/autenticacao/token-senha-unica}
 \input{components/textuais/fundamentacao_teorica/autenticacao/desafio-resposta}
